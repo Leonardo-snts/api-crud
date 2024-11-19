@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%ankm=1@poz%u=kpyi$jup#m8ga3$rel2asw@930qq=k5eu^u+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'http://18.228.11.240:8080/']
 
 
 # Application definition
@@ -56,7 +56,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "*",
+    "https://crud-frontend-inky-one.vercel.app/",
+    "https://crud-frontend-git-main-leonardos-projects-f6d1fea6.vercel.app/",
 ]
 
 
