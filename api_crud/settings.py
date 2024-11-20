@@ -38,7 +38,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'http://15.228.164.101:3000',  # IP publico Frontend
     'http://localhost:3000',       # Para testes locais
-    'https://crud-frontend-inky-one.vercel.app/', # Dominio Vercel
+    'https://crud-frontend-inky-one.vercel.app', # Dominio Vercel
 ]
 
 # Application definition
