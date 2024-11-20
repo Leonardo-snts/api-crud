@@ -27,8 +27,14 @@ SECRET_KEY = 'django-insecure-%ankm=1@poz%u=kpyi$jup#m8ga3$rel2asw@930qq=k5eu^u+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '18.228.11.240']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '18.228.11.240', 'https://18.228.11.240:8080/' ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://crud-frontend-inky-one.vercel.app/',
+    'https://crud-frontend-git-main-leonardos-projects-f6d1fea6.vercel.app/',
+    '15.228.164.101',
+    'https://15.228.164.101:3000'
+]
 
 # Application definition
 
@@ -55,9 +61,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://crud-frontend-inky-one.vercel.app/",
-    "https://crud-frontend-git-main-leonardos-projects-f6d1fea6.vercel.app/",
+CSRF_TRUSTED_ORIGINS = [
+    'https://crud-frontend-inky-one.vercel.app',
+    'https://crud-frontend-git-main-leonardos-projects-f6d1fea6.vercel.app',
 ]
 
 
