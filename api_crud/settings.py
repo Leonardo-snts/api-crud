@@ -30,13 +30,11 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '18.228.11.240', # IP público API
-    '15.228.164.101', # IP publico Frontend
-    'crud-frontend-inky-one.vercel.app' # Dominio Vercel
+    'crud-frontend-inky-one.vercel.app', # Dominio Vercel
+    'api-crud-96xx.onrender.com', # Dominio Render
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://15.228.164.101:3000',  # IP publico Frontend
     'http://localhost:3000',       # Para testes locais
     'https://crud-frontend-inky-one.vercel.app', # Dominio Vercel
 ]
