@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: django_app
-    command: ["gunicorn", "--bind", "0.0.0.0:8080", "api_crud.wsgi"]
+    command: ["gunicorn", "--bind", "0.0.0.0:8080", "api_crud.wsgi:application"]
     volumes:
       - .:/app
     ports:
@@ -14,21 +14,27 @@ services:
     depends_on:
       - db
     environment:
-      - DEBUG=True
+      - DEBUG=False
       - DJANGO_SECRET_KEY=your-secret-key
-      - DATABASE_URL=postgres://user:password@db:5432/dbname
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT}
     networks:
       - app_network
 
   db:
-    image: postgres:15
+    image: postgres:latest
     container_name: postgres_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: dbname
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5433:5432"
     networks:
       - app_network
 

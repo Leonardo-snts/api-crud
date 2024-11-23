@@ -4,17 +4,22 @@ FROM python:3.10-slim
 # Configure o diretório de trabalho
 WORKDIR /app
 
-# Copie os arquivos do projeto
-COPY . /app
+# Instale dependências do sistema
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc --no-install-recommends && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Instale as dependências
+# Copie apenas o arquivo de dependências primeiro (para cache eficiente)
+COPY requirements.txt /app/requirements.txt
+
+# Instale as dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Coleta arquivos estáticos
-RUN python manage.py collectstatic --no-input
+# Copie o restante do projeto
+COPY . /app
 
 # Exponha a porta que será usada
 EXPOSE 8080
 
 # Comando para iniciar o servidor
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "api_crud.wsgi"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "api_crud.wsgi:application"]
