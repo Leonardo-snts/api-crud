@@ -32,10 +32,12 @@ ALLOWED_HOSTS = [
     'localhost',
     'crud-frontend-inky-one.vercel.app', # Dominio Vercel
     'api-crud-96xx.onrender.com', # Dominio Render
+    'api-crud-955576493749.southamerica-east1.run.app', # Dominio GCP
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',       # Para testes locais
+    'http://127.0.0.1:3000',       # Para testes locais
     'https://crud-frontend-inky-one.vercel.app', # Dominio Vercel
 ]
 
