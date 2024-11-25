@@ -18,15 +18,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie o restante do projeto
 COPY . /app
 
-# Copie o script de inicialização
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
-
 # Exponha a porta que será usada
 EXPOSE 8080
 
-# Defina o entrypoint
-ENTRYPOINT ["/app/entrypoint.sh"]
-
 # Comando para iniciar o servidor
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "api_crud.wsgi:application"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn myproject.wsgi:application --bind 0.0.0.0:8080"]
+
