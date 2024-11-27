@@ -17,7 +17,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -25,10 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%ankm=1@poz%u=kpyi$jup#m8ga3$rel2asw@930qq=k5eu^u+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'django-api-431548593185.southamerica-east1.run.app',  # Dominio Cloud Run
+    'crud-frontend-inky-one.vercel.app',  # Dominio Vercel
+]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',       # Para testes locais
+    'http://127.0.0.1:3000',       # Para testes locais
+    'https://crud-frontend-inky-one.vercel.app', # Dominio Vercel
+]
 
 # Application definition
 
@@ -54,11 +63,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
 
 ROOT_URLCONF = 'api_crud.urls'
 
@@ -86,6 +90,7 @@ WSGI_APPLICATION = 'api_crud.wsgi.application'
 
 load_dotenv()
 
+# Configuração do banco de dados
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

@@ -1,5 +1,6 @@
 # Ignorar o arquivo de ambiente
 .env
+conection.py
 
 # Ignorar pastas de ambientes virtuais
 venv/
