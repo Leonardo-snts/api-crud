@@ -25,4 +25,4 @@ COPY . /app
 EXPOSE 8080
 
 # Comando para iniciar o servidor
-CMD ["sh", "-c", "gunicorn api_crud.wsgi:application --bind 0.0.0.0:8080 && python manage.py migrate"]
+CMD ["sh", "-c", "python migrate.py && gunicorn api_crud.wsgi:application --bind 0.0.0.0:8080 && python manage.py migrate"]

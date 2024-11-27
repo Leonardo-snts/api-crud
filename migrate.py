@@ -13,9 +13,14 @@ def run_migrations():
 
     for i in range(retries):
         try:
-            # Teste de conexão com o banco de dados
+            # Teste de conexão com o banco de dados no Cloud SQL
             subprocess.run(
-                ["pg_isready", "-h", "db", "-p", "5432", "-U", "postgres"],
+                [
+                    "pg_isready",
+                    "-h", "aws-0-sa-east-1.pooler.supabase.com",
+                    "-p", "6543",
+                    "-U", "postgres.rkgcqqfvorysmywkhjkm",
+                ],
                 check=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
