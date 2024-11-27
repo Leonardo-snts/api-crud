@@ -31,9 +31,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'crud-frontend-inky-one.vercel.app', # Dominio Vercel
-    'api-crud-96xx.onrender.com', # Dominio Render
-    'api-crud-955576493749.southamerica-east1.run.app', # Dominio GCP
-]
+    'adept-antler-442721-n3.rj.r.appspot.com'
+    ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',       # Para testes locais
